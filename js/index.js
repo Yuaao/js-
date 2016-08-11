@@ -195,6 +195,46 @@ var index={
         }
         return false;
     },
+    //domReady
+    IEContentLoaded:function(w,fn){
+        var d= w.document,done=false,init= function () {
+            if(!done){
+                done=true;
+                fn();
+            //    这里只执行一次
+            }
+        }
+        (function(){
+            try{
+                //ie有个特有的doScroll方法，当页面DOM未加载完成时，调用doScroll方法时，就会报错，反过来，只要一直间隔调用doScroll直到不报错，那就表示页面DOM加载完毕了。
+                d.documentElement.doScroll('left');
+            //    在dom未建完之前调用元素doScroll会抛出错误
+            }catch (e){
+                //延迟在试
+                setTimeout(arguments.callee,50);
+                //arguments.callee//   返回正被执行的 Function 对象
+                return;
+            }
+            init();
+        })()
+    },
+//    无冲突处理
+    noConflictJquery: function () {
+
+            $.extend({
+                noConflict:function(deep){
+                    window.$=_$=undefined;
+                    if(deep){
+                        window.jQuery=_jQuery;
+                        return jQuery;
+                    }
+                }
+            })
+
+
+
+    }
+
 
 
 
