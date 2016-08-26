@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!-- 三角形-->
+<style>
+    .toggle{
+        border-top: 8px solid #ddd;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        width: 0;
+        height: 0;
+    }
+    .outer{
+        border: 1px solid #ccc;
+        background: #fc9;
+        color: #fff;
+        margin: 50px auto;
+        padding: 50px;
+    }
+    .div1 {
+        width: 80px;
+        height: 80px;
+        background: red;
+        float: left;
+    }
+    .div2{
+        width: 80px;
+        height: 80px;
+        background: blue;
+        float: left;
+    }
+    .div3{
+        width: 80px;
+        height: 80px;
+        background: sienna;
+        float: left;
+    }
+    .over-flow{
+        overflow: auto; zoom: 1; //zoom: 1; 是在处理兼容性问题
+    }
+    .clear{clear:both; height: 0; line-height: 0; font-size: 0}
+
+</style>
+<!--三角形-->
+<div class="toggle">
+    <!-- -->
+
+</div>
+<div>
+    <!-- 浮动-->
+    <div class="outer over-flow">
+        <div class="div1">1</div>
+        <div class="div2">2</div>
+        <div class="div3">3</div>
+    </div>
+    <div>
+        1.清除浮动 overflow: auto; zoom: 1; 针对浮动元素的容器（父元素）来设置既：outer
+
+    </div>
+    <div class="outer">
+        <div class="div1">1</div>
+        <div class="div2">2</div>
+        <div class="div3">3</div>
+        <div class="clear">
+
+        </div>
+    </div>
+    <div>
+
+        2..clear{clear:both; height: 0; line-height: 0; font-size: 0}；浮动元素增加一个兄弟元素。
+    </div>
+
+
+</div>
+<div>
+
+    小算法：打印质数
+
+</div>
+<script src='test.js'>
+
+</script>
+
+</body>
+</html>
